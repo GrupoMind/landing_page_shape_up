@@ -1,0 +1,231 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: "Product",
+    links: [
+      { text: "Features", url: "#features" },
+      { text: "Process", url: "#process" },
+      { text: "Benefits", url: "#benefits" },
+      { text: "Testimonials", url: "#testimonials" }
+    ]
+  },
+  {
+    title: "Resources",
+    links: [
+      { text: "Blog", url: "#" },
+      { text: "Case Studies", url: "#" },
+      { text: "Documentation", url: "#" },
+      { text: "Guides", url: "#" }
+    ]
+  },
+  {
+    title: "Company",
+    links: [
+      { text: "About Us", url: "#" },
+      { text: "Careers", url: "#" },
+      { text: "Contact", url: "#contact" },
+      { text: "Privacy Policy", url: "#" }
+    ]
+  }
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <a href="/">
+            <svg width="40" height="40" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M64 16C37.49 16 16 37.49 16 64s21.49 48 48 48 48-21.49 48-48S90.51 16 64 16zm0 12c19.85 0 36 16.15 36 36S83.85 100 64 100 28 83.85 28 64s16.15-36 36-36zm0 12c-13.23 0-24 10.77-24 24s10.77 24 24 24 24-10.77 24-24-10.77-24-24-24z" fill="currentColor"/>
+            </svg>
+            <span>Shape Up</span>
+          </a>
+        </div>
+        <p>Transform your product development process with the Shape Up methodology. Clear cycles, focused work, better outcomes.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        {footerLinks.map(column => (
+          <div class="footer-links-column">
+            <h3>{column.title}</h3>
+            <ul>
+              {column.links.map(link => (
+                <li><a href={link.url}>{link.text}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Shape Up Methodology. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: rgb(var(--gray-900));
+    color: white;
+    padding: 5rem 0 2rem;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  
+  .footer-logo svg {
+    margin-right: 0.5rem;
+    color: rgb(var(--primary-light));
+  }
+  
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    background-color: rgb(var(--primary));
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .footer-links-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .footer-links-column ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .footer-links-column a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links-column a:hover {
+    color: white;
+  }
+  
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-bottom p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+  }
+  
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .footer-legal a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-legal a:hover {
+    color: white;
+  }
+  
+  @media (max-width: 992px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    .footer-legal {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+</style>

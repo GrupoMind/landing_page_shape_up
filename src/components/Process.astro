@@ -1,0 +1,126 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Shape",
+    description: "Define the problem and solution at the right level of abstraction. Create a pitch that explains the problem, constraints, solution, and appetite.",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    number: "02",
+    title: "Bet",
+    description: "Instead of maintaining a backlog, stakeholders place bets on which pitches to schedule in the next six-week cycle during the betting table meeting.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    number: "03",
+    title: "Build",
+    description: "Small teams work with full autonomy to figure out how to implement the shaped work. They use techniques like scope mapping and circuit breakers.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  }
+];
+---
+
+<section id="process" class="section process">
+  <div class="container">
+    <div class="section-header">
+      <h2>The <span class="text-gradient">Shape Up</span> Process</h2>
+      <p>A three-phase approach to product development that brings clarity and focus</p>
+    </div>
+    
+    <div class="process-steps">
+      {steps.map((step, index) => (
+        <div class="process-step">
+          <div class="step-content">
+            <div class="step-number">{step.number}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+          <div class="step-image">
+            <img src={step.image} alt={`Step ${index + 1}: ${step.title}`} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    background-color: white;
+  }
+  
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  
+  .process-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .process-step:nth-child(even) {
+    direction: rtl;
+  }
+  
+  .process-step:nth-child(even) .step-content,
+  .process-step:nth-child(even) .step-image {
+    direction: ltr;
+  }
+  
+  .step-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(var(--primary), 0.15);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  
+  .step-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--gray-900));
+  }
+  
+  .step-content p {
+    font-size: 1.1rem;
+    color: rgb(var(--gray-800));
+    max-width: 90%;
+  }
+  
+  .step-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .step-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 992px) {
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .process-step:nth-child(even) {
+      direction: ltr;
+    }
+    
+    .step-content p {
+      max-width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,200 @@
+---
+const benefits = [
+  {
+    title: "Reduced Uncertainty",
+    description: "Clear cycles with defined scope reduce the anxiety of endless projects and unclear deadlines.",
+    icon: "🎯"
+  },
+  {
+    title: "Higher Quality Work",
+    description: "Teams have the time and space to solve problems properly instead of rushing to meet arbitrary deadlines.",
+    icon: "✨"
+  },
+  {
+    title: "Better Team Morale",
+    description: "Autonomous teams with clear goals lead to higher satisfaction and reduced burnout.",
+    icon: "😊"
+  },
+  {
+    title: "Focused Leadership",
+    description: "Leaders can focus on strategic decisions rather than micromanaging daily work.",
+    icon: "🧠"
+  }
+];
+---
+
+<section id="benefits" class="section benefits">
+  <div class="container">
+    <div class="benefits-content">
+      <div class="benefits-text">
+        <h2>Why Choose <span class="text-gradient">Shape Up</span>?</h2>
+        <p>Shape Up isn't just a methodology—it's a fundamental shift in how teams approach product development. By focusing on outcomes rather than output, teams can deliver more meaningful work with less stress.</p>
+        
+        <div class="benefits-list">
+          {benefits.map(benefit => (
+            <div class="benefit-item">
+              <div class="benefit-icon">{benefit.icon}</div>
+              <div class="benefit-details">
+                <h3>{benefit.title}</h3>
+                <p>{benefit.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div class="benefits-stats">
+        <div class="stat-card">
+          <div class="stat-header">
+            <h3>Performance Metrics</h3>
+            <p>Based on companies implementing Shape Up</p>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">Lighthouse Performance Score</div>
+            <div class="stat-bar">
+              <div class="stat-progress" style="width: 98%;">98%</div>
+            </div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">Mobile Responsiveness</div>
+            <div class="stat-bar">
+              <div class="stat-progress" style="width: 95%;">95%</div>
+            </div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">SEO Optimization</div>
+            <div class="stat-bar">
+              <div class="stat-progress" style="width: 92%;">92%</div>
+            </div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">Accessibility</div>
+            <div class="stat-bar">
+              <div class="stat-progress" style="width: 90%;">90%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background-color: rgb(var(--gray-100));
+  }
+  
+  .benefits-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .benefits-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .benefits-text > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: rgb(var(--gray-800));
+  }
+  
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .benefit-item {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  
+  .benefit-details h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: rgb(var(--gray-900));
+  }
+  
+  .benefit-details p {
+    color: rgb(var(--gray-800));
+  }
+  
+  .benefits-stats {
+    padding-left: 2rem;
+  }
+  
+  .stat-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-header {
+    margin-bottom: 2rem;
+  }
+  
+  .stat-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-header p {
+    color: rgb(var(--gray-800));
+  }
+  
+  .stat-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .stat-bar {
+    height: 10px;
+    background-color: rgb(var(--gray-200));
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .stat-progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    text-align: right;
+    font-size: 0.75rem;
+    color: white;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  @media (max-width: 992px) {
+    .benefits-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .benefits-stats {
+      padding-left: 0;
+    }
+  }
+</style>

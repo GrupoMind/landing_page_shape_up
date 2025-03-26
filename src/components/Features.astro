@@ -1,0 +1,125 @@
+---
+const features = [
+  {
+    title: "Six-Week Cycles",
+    description: "Work in focused, uninterrupted six-week cycles to deliver meaningful chunks of work with clear deadlines.",
+    icon: "⏱️"
+  },
+  {
+    title: "Shaped Work",
+    description: "Projects are shaped before commitment, with the right level of abstraction—concrete enough to estimate but abstract enough for creativity.",
+    icon: "🔷"
+  },
+  {
+    title: "Small, Autonomous Teams",
+    description: "Small teams of designers and developers work together with full autonomy to figure out how to implement projects.",
+    icon: "👥"
+  },
+  {
+    title: "No Daily Meetings",
+    description: "Replace daily standups with asynchronous updates, giving your team more time for deep, focused work.",
+    icon: "🚫"
+  },
+  {
+    title: "Betting Table",
+    description: "Leadership decides what to build in the next cycle through a betting process, not through a backlog grooming session.",
+    icon: "🎲"
+  },
+  {
+    title: "Circuit Breaker",
+    description: "If a project isn't working out, teams have the option to cut their losses and move on instead of extending deadlines.",
+    icon: "⚡"
+  }
+];
+---
+
+<section id="features" class="section features">
+  <div class="container">
+    <div class="section-header">
+      <h2>Key Features of <span class="text-gradient">Shape Up</span></h2>
+      <p>A methodology that brings clarity and focus to product development</p>
+    </div>
+    
+    <div class="features-grid">
+      {features.map(feature => (
+        <div class="feature-card">
+          <div class="feature-icon">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background-color: rgb(var(--gray-100));
+  }
+  
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-header p {
+    font-size: 1.2rem;
+    color: rgb(var(--gray-800));
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .feature-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--gray-900));
+  }
+  
+  .feature-card p {
+    color: rgb(var(--gray-800));
+  }
+  
+  @media (max-width: 992px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

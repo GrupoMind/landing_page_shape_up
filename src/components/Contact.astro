@@ -1,0 +1,255 @@
+---
+---
+
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <h2>Ready to <span class="text-gradient">Shape Up</span> Your Process?</h2>
+        <p>Get in touch with our team to learn how Shape Up can transform your product development. We offer workshops, coaching, and implementation support.</p>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="method-icon">📧</div>
+            <div class="method-details">
+              <h3>Email Us</h3>
+              <p>hello@shapeupmethod.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">📞</div>
+            <div class="method-details">
+              <h3>Call Us</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">📅</div>
+            <div class="method-details">
+              <h3>Schedule a Call</h3>
+              <p>Book a 30-minute consultation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <form class="contact-form">
+          <h3>Get Started</h3>
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Your company" />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          
+          <p class="form-disclaimer">By submitting this form, you agree to our privacy policy and terms of service.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple form validation and submission handling
+  const contactForm = document.querySelector('.contact-form');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // In a real implementation, you would send the form data to a server
+      // For this demo, we'll just show a success message
+      const formElements = contactForm.elements;
+      let isValid = true;
+      
+      // Basic validation
+      for (let i = 0; i < formElements.length; i++) {
+        const element = formElements[i];
+        if (element.required && !element.value.trim()) {
+          isValid = false;
+          element.classList.add('error');
+        } else {
+          element.classList.remove('error');
+        }
+      }
+      
+      if (isValid) {
+        // Show success message
+        contactForm.innerHTML = `
+          <div class="form-success">
+            <div class="success-icon">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact {
+    background-color: rgb(var(--gray-100));
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info > p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: rgb(var(--gray-800));
+  }
+  
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contact-method {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .method-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  
+  .method-details h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: rgb(var(--gray-900));
+  }
+  
+  .method-details p {
+    color: rgb(var(--gray-800));
+  }
+  
+  .contact-form-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .contact-form {
+    padding: 2.5rem;
+  }
+  
+  .contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgb(var(--gray-900));
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgb(var(--gray-800));
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgb(var(--gray-300));
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: rgb(var(--primary));
+    box-shadow: 0 0 0 3px rgba(var(--primary), 0.1);
+  }
+  
+  .form-group input.error,
+  .form-group textarea.error {
+    border-color: rgb(var(--secondary));
+  }
+  
+  .btn-full {
+    width: 100%;
+  }
+  
+  .form-disclaimer {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgb(var(--gray-800));
+    text-align: center;
+  }
+  
+  .form-success {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(var(--primary));
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-success h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-success p {
+    color: rgb(var(--gray-800));
+  }
+  
+  @media (max-width: 992px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

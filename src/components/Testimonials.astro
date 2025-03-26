@@ -1,0 +1,185 @@
+---
+const testimonials = [
+  {
+    quote: "Shape Up transformed how our team works. We've cut our development time in half while delivering more impactful features.",
+    author: "Sarah Johnson",
+    position: "CTO, TechFlow",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "The six-week cycles have given our team the perfect balance of urgency and calm. We're more productive and less stressed.",
+    author: "Michael Chen",
+    position: "Product Director, InnovateCorp",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+  },
+  {
+    quote: "Shape Up eliminated our endless backlog and helped us focus on what really matters. Our team is more engaged and our customers are happier.",
+    author: "Emily Rodriguez",
+    position: "Engineering Manager, BuildBetter",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
+  }
+];
+---
+
+<section id="testimonials" class="section testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Teams Are <span class="text-gradient">Saying</span></h2>
+      <p>Hear from companies that have transformed their product development with Shape Up</p>
+    </div>
+    
+    <div class="testimonials-slider">
+      {testimonials.map(testimonial => (
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <blockquote>
+            <p>{testimonial.quote}</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src={testimonial.image} alt={testimonial.author} />
+            </div>
+            <div class="author-info">
+              <h4>{testimonial.author}</h4>
+              <p>{testimonial.position}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="testimonial-companies">
+      <p>Trusted by innovative companies worldwide</p>
+      <div class="company-logos">
+        <div class="company-logo">Acme Inc.</div>
+        <div class="company-logo">TechFlow</div>
+        <div class="company-logo">InnovateCorp</div>
+        <div class="company-logo">BuildBetter</div>
+        <div class="company-logo">FutureWorks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: white;
+  }
+  
+  .testimonials-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .testimonial-card {
+    background-color: rgb(var(--gray-100));
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quote-mark {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 4rem;
+    line-height: 1;
+    color: rgba(var(--primary), 0.15);
+    font-family: serif;
+  }
+  
+  .testimonial-card blockquote {
+    margin: 0 0 2rem;
+    font-size: 1.1rem;
+    color: rgb(var(--gray-800));
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .author-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: rgb(var(--gray-900));
+  }
+  
+  .author-info p {
+    font-size: 0.9rem;
+    color: rgb(var(--gray-800));
+  }
+  
+  .testimonial-companies {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .testimonial-companies > p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgb(var(--gray-800));
+  }
+  
+  .company-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  
+  .company-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgb(var(--gray-300));
+    transition: color 0.3s ease;
+  }
+  
+  .company-logo:hover {
+    color: rgb(var(--primary));
+  }
+  
+  @media (max-width: 992px) {
+    .testimonials-slider {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .testimonials-slider {
+      grid-template-columns: 1fr;
+    }
+    
+    .company-logos {
+      gap: 1.5rem;
+    }
+  }
+</style>
